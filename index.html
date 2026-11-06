@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent PR Review Kit (pre-launch waitlist)</title>
+<meta name="description" content="Pre-launch waitlist. Review agent PRs without rubber-stamping: risk rubric by change type, 12-minute checklist, minimum tests before merge, documented no template, and who may approve Claude/Codex co-authored PRs.">
+<style>
+body{font-family:system-ui,sans-serif;max-width:680px;margin:0 auto;padding:32px 20px;line-height:1.6;color:#1a1a1a}
+.badge{display:inline-block;background:#fff3cd;border:1px solid #e0c060;padding:4px 10px;border-radius:6px;font-size:.9em}
+h1{line-height:1.2}ul{padding-left:20px}
+.price{font-size:1.6em;font-weight:700}
+form{background:#f5f5f7;padding:20px;border-radius:10px;margin:24px 0}
+input,button{font-size:1em;padding:10px;border-radius:6px;border:1px solid #ccc;width:100%;box-sizing:border-box;margin-top:8px}
+button{background:#111;color:#fff;border:0;cursor:pointer}small{color:#555}
+.note{background:#eef6ff;border:1px solid #b7d4f0;padding:12px 14px;border-radius:8px;margin:16px 0}
+</style></head><body>
+<span class="badge">Pre-launch: this product does not exist yet</span>
+<h1>Agent PR Review Kit</h1>
+<p>Typing got cheaper. Review bandwidth did not. Teams merge dozens of PRs credited to Claude Code or Codex and end up rubber-stamping. This kit is for leads and small teams who want a human review process that still says no.</p>
+<p class="note">Some teams report most merged PRs co-authored by Claude. The free tip is "read the diff." This kit packages a risk rubric, a timed checklist, and a documented "no" so you do not invent the process under load.</p>
+<ul>
+<li><b>Risk rubric by change type:</b> how deep to look when the agent touched auth, schema, deps, or UI-only files.</li>
+<li><b>12-minute review checklist:</b> a fixed path so review time stays bounded when PR volume spikes.</li>
+<li><b>Minimum tests before merge:</b> the smallest test bar you require before approving an agent PR.</li>
+<li><b>Documented "no" template:</b> a short write-up when you roll back or reject, so the team learns once.</li>
+<li><b>Approval rule:</b> who may approve PRs with Co-Authored-By Claude or Codex (and when that person cannot).</li>
+</ul>
+<p>We are measuring paid interest before building it. Join only if you want the packaged process, not another AI reviewer bot.</p>
+<p>Planned launch price: <span class="price" id="price">US$ 29</span><br><small>Price is not final. Joining is free and does not commit you to buy. Nothing is charged here.</small></p>
+<form id="wl">
+<label for="email">Your email</label>
+<input id="email" type="email" required placeholder="you@example.com">
+<button type="submit">Join the waitlist</button>
+<small>This opens your email app with a prefilled message to renandlsantos.ai@gmail.com. Your signup counts when you press send.</small>
+</form>
+<p><small>Questions: <a href="mailto:renandlsantos.ai@gmail.com">renandlsantos.ai@gmail.com</a>. Not affiliated with Anthropic or OpenAI. Educational kit; we do not promise merge quality on your repo.</small></p>
+<script>
+var K='apr_price_variant',V={A:29,B:39},v=localStorage.getItem(K);
+if(!V[v]){v=Math.random()<.5?'A':'B';localStorage.setItem(K,v);}
+document.getElementById('price').textContent='US$ '+V[v];
+document.getElementById('wl').addEventListener('submit',function(e){e.preventDefault();
+var m=document.getElementById('email').value.trim();
+var s='Agent PR Review Kit waitlist [variant '+v+' US$'+V[v]+']';
+var b='Please add me to the Agent PR Review Kit waitlist.\nEmail: '+m+'\nPrice variant: '+v+' (US$ '+V[v]+')\nPage: '+location.href;
+location.href='mailto:renandlsantos.ai@gmail.com?subject='+encodeURIComponent(s)+'&body='+encodeURIComponent(b);});
+</script></body></html>
